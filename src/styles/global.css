@@ -6,11 +6,8 @@ body {
     @apply font-primary bg-gray-200;
 }
 
-/* .dropdown {
-    @apply w-full lg: max-w-[296px] cursor-pointer;
-}
 
-.dropdown-btn {
+/* .dropdown-btn {
     @apply flex h-[64px] items-center px-[18px] border rounded-lg;
 }
 

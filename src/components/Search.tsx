@@ -3,8 +3,12 @@ import { PropertyDropdown } from "./Dropdown/PropertyDropdown"
 import { PriceRangeDropdown } from "./Dropdown/PriceRangeDropdown"
 
 import { RiSearch2Line } from 'react-icons/ri'
+import { useHouse } from "../hooks/useHouse"
 
 export function Search() {
+    // Buscando houses do contexto (array com 18 itens) - console.log(houses)
+    const { houses } = useHouse()
+
     return (
         <div className="px-[30px] py-6 max-w-[1170px] mx-auto flex flex-col lg:flex-row justify-between gap-4 lg:gap-x-3 relative lg:-top-4 lg:shadow-1 bg-white lg:bg-transparent lg:backdrop-blur rounded-lg">
             <CountryDropdown />
