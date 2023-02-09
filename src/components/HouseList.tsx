@@ -9,7 +9,19 @@ import { ImSpinner2 } from 'react-icons/im'
 export function HouseList() {
     const { houses, loading } = useHouse()
 
-    console.log(houses)
+
+    if (loading) {
+        return (
+            <ImSpinner2
+                className="mx-auto animate-spin text-violet-700 text-4xl mt-[200px]"
+            />
+        )
+    }
+
+    if (houses.length < 1) {
+        return <div>Sorry, nothing found</div>
+    }
+
 
     return (
         <section className="mb-20">
