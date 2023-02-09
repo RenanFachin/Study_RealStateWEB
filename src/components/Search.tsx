@@ -1,5 +1,7 @@
-export function Search(){
-    return(
-        <></>
+export function Search() {
+    return (
+        <div>
+            Search
+        </div>
     )
 }
