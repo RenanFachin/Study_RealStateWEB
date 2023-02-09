@@ -18,8 +18,12 @@ export function HouseList() {
         )
     }
 
-    if (houses.length < 1) {
-        return <div>Sorry, nothing found</div>
+    if (houses.length == 0) {
+        return (
+            <div className="text-center text-3xl text-gray-400 mt-48">
+                Sorry, nothing found
+            </div>
+        )
     }
 
 
