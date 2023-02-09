@@ -29,8 +29,9 @@ interface HouseContextProps {
     property: string;
     properties: Array<String>;
     price: string;
-    loading: boolean
-    setCountry: (country: string) => void,
+    loading: boolean;
+    setCountry: (country: string) => void;
+    setProperty: (properties: string) => void;
 }
 
 export const HouseContext = createContext({} as HouseContextProps)
@@ -44,7 +45,7 @@ export function HouseProvider({ children }: HouseProviderProps) {
     const [country, setCountry] = useState('Location (any)')
     const [countries, setCountries] = useState<string[]>([])
     const [property, setProperty] = useState('Property type (any)')
-    const [properties, setProperties] = useState([])
+    const [properties, setProperties] = useState<string[]>([])
     const [price, setPrice] = useState('Price range (any)')
     const [loading, setLoading] = useState(false)
 
@@ -65,15 +66,29 @@ export function HouseProvider({ children }: HouseProviderProps) {
 
         // Definindo o state
         setCountries(uniqueCountries)
-    },[])
+    }, [])
+
+    // return all properties when user rendering page
+    useEffect(() => {
+        const allProperties = houses.map((house) => {
+            return house.type
+        })
+
+        // ['location (any)', 'Apartment', 'House' ]
+        const uniqueProperties = ['Location (any)', ...new Set(allProperties)]
+
+        // Definindo o state
+        setProperties(uniqueProperties)
+
+    }, [])
 
 
     return (
-        <HouseContext.Provider value={{ houses, country, setCountry, countries, property, properties, price, loading }}>
+        <HouseContext.Provider value={{ houses, country, setCountry, countries, property, setProperty, properties, price, loading }}>
             {children}
         </HouseContext.Provider>
     )
 }
 
 
-//setCountry, setProperty,  setPrice
+//  setPrice
