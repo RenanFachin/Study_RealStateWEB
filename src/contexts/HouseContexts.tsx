@@ -12,6 +12,7 @@ type housesDataProps = {
     country: string;
     address: string;
     bedrooms: string;
+    bathrooms: string;
     surface: string;
     year: string;
     price: string;
