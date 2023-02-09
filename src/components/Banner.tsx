@@ -24,10 +24,8 @@ export function Banner() {
                 <div className='hidden flex-1 lg:flex justify-end items-end'>
                     <img src={Image} alt="" />
                 </div>
-
-                <Search />
-
             </div>
+            <Search />
         </section>
     )
 }
