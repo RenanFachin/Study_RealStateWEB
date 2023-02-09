@@ -32,6 +32,8 @@ interface HouseContextProps {
     loading: boolean;
     setCountry: (country: string) => void;
     setProperty: (properties: string) => void;
+    setPrice: (price: string) => void;
+    handleClick: () => void;
 }
 
 export const HouseContext = createContext({} as HouseContextProps)
@@ -82,13 +84,15 @@ export function HouseProvider({ children }: HouseProviderProps) {
 
     }, [])
 
+    function handleClick() {
+        console.log('cliked')
+    }
+
 
     return (
-        <HouseContext.Provider value={{ houses, country, setCountry, countries, property, setProperty, properties, price, loading }}>
+        <HouseContext.Provider value={{ houses, country, setCountry, countries, property, setProperty, properties, price, setPrice, loading, handleClick }}>
             {children}
         </HouseContext.Provider>
     )
 }
 
-
-//  setPrice
